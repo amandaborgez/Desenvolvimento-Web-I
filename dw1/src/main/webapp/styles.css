@@ -1,0 +1,161 @@
+@charset "UTF-8"; /*não pode ficar separado*/
+*, *::before, *::after {
+	box-sizing: border-box; /*o tamanho inclui a borda*/
+	overflow-wrap: anywhere; /*força a quebra de linha*/
+	min-width: 0;
+	/*permite que a largura diminua se o conteúdo interno for maior*/
+}
+
+/*CORPO TOTAL DO SITE*/
+body {
+	background-color: GreenYellow;
+	background-image: url("Imagens/folhas.png");
+	margin: 0;
+	padding: 0;
+	font-family: "Papyrus", fantasy;
+}
+
+/*CONTAINER PRINCIPAL DO SITE*/
+.principal {
+	width: 100%;
+	max-width: 960px; /*largura total (mesma da imagem)*/
+	margin: 0 auto; /*centralizar*/
+	background: linear-gradient(rgb(64, 128, 128), GreenYellow);
+}
+
+.centro {
+	padding: 1rem;
+	margin: 0;
+}
+
+img, video, audio { /*não devem vazar*/
+	max-width: 100%;
+	display: block;
+	/*transforma a imagem em um bloco que toma toda a largura*/
+	margin: auto; /*o navegador calcula uma margem*/
+}
+
+/*CABEÇALHO*/
+header {
+	text-align: center;
+	background-image: url("Imagens/paisagem.png");
+	background-repeat: no-repeat; /*impede a repetição*/
+	background-size: cover;
+	/*cobre toda área do cbaeçalho mantendo a proporção*/
+	background-size: bottom; /*foco da imagem*/
+	padding: 2rem 1rem;
+	/*rem é o tamanho padrão do elemento raiz*/
+	/*usar rem torna o site responsivo ao navegador*/
+	align-items: center;
+}
+
+/*Seletor filho*/
+nav ul {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	list-style: none; /*tira os bullet points*/
+	padding: 0; /*remover espaço à esquerda*/
+	margin: 0;
+	gap: 5px; /*espaço entre os itens do menu*/
+}
+
+.menuitem {
+	width: 170px;
+	max-width: 100%; /*ocupa somente a largura disponível*/
+	padding: 1px 0px;
+	border-style: solid; /* necessária para as seguintes fazerem efeito */
+	border-radius: 15px;
+	background-color: White;
+	border-color: Olive;
+	color: Olive;
+	text-align: center;
+	display: inline-block;
+	white-space: nowrap; /*fica na mesma linha*/
+}
+
+/*SELETORES PSEUDOCLASSE:*/
+.menuitem:link {
+	text-decoration: none; /*tira o underline quando inativo*/
+}
+
+.menuitem:hover {
+	text-decoration: underline;
+}
+
+/*SELETORES PSEUDOELEMENTO*/
+::selection {
+	background: lightblue;
+}
+
+ol>li::marker {
+	font-weight: bold;
+}
+
+h1, h2, h3, h4 {
+	font-family: Lucida Handwriting, Brush Script MT, Brush Script Std,
+		cursive;
+}
+
+/*EXEMPLOS DE ESPECIALIZAÇÃO*/
+
+/*seletor filho*/
+header h1 {
+	text-align: center;
+	color: rgb(64, 128, 128)
+}
+
+h2:first-child {
+	text-align: center;
+}
+
+/*seletor adjacente*/
+h2 + p {
+	margin-top: 0.5rem;
+}
+
+.legenda {
+	font-weight: bold;
+	text-align: center;
+}
+
+.galeria {
+	display: flex; /*dispõe horizontalmente*/
+	flex-wrap: nowrap; /*evita quebra*/
+	justify-content: center;
+	align-items: center; /*alinha no centro vertical*/
+	gap: 0.5rem;
+}
+
+.galeriaitem {
+	display: flex;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	justify-content: center;
+}
+
+/*EXEMPLO DE GENERALIZAÇÃO */
+table, tr {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	margin: 0 auto;
+}
+
+td {
+	background-color: white;
+	border: inherit;
+}
+
+th {
+	background-color: rgb(64, 128, 128);
+	border: inherit;
+}
+
+/*RODAPÉ*/
+footer {
+	margin: 0;
+	background-color: rgb(64, 128, 128);
+	text-align: center;
+}
